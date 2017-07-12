@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Lightbox</title>
+  <style media="screen">
+    body {
+      margin: 0px;
+      background-color: gray;
+    }
+
+    .lightbox img {
+      width: 200px;
+      margin: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lightbox">
+    <img src="img1.jpg" alt="">
+    <img src="img2.jpg" alt="">
+    <img src="img3.jpg" alt="">
+  </div>
+  <script src="lightbox.js"></script>
+  <script>
+    lightbox('.lightbox');
+  </script>
+</body>
+
+</html>

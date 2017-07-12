@@ -1,0 +1,10 @@
+{
+  "name": "lightbox",
+  "version": "0.0.1",
+  "dependencies": {
+  },
+  "scripts": {
+    "gulp": "gulp",
+    "minify": "gulp minify"
+  }
+}
