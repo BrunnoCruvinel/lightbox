@@ -73,7 +73,6 @@ var lightbox = function(element) {
 
   // IMAGE
   img.id = "lb-img";
-  img.src = "img1.jpg";
   img.style.maxWidth = "100%";
 
 
