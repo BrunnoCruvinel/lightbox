@@ -1,6 +1,13 @@
+/*!
+ * Pure Lightbox JavaScript Library v0.0.2
+ * MIT LICENSE
+ * https://github.com/BrunnoCruvinel/lightbox
+ *
+ * Date: 2017-07-2018
+ */
 var lightbox = function(element) {
 
-  // DOM
+/*DOM*/
   var lb = document.createElement("div");
   var container = document.createElement("div");
   var close = document.createElement("button");
@@ -8,20 +15,20 @@ var lightbox = function(element) {
   var next = document.createElement("button");
   var img = document.createElement("img");
 
-  // MODAL
+/*MODAL*/
   lb.id = "lb-lightbox";
   lb.className = "lb-lightbox";
   lb.style.opacity = 0;
   lb.style.zIndex = "-1";
   lb.style.width = "100%";
   lb.style.height = "100%";
-  lb.style.position = "absolute";
+  lb.style.position = "fixed";
   lb.style.top = "0px";
   lb.style.left = "0px";
   lb.style.background = "rgba(0,0,0,.7)";
   lb.style.transition = "all 500ms";
 
-  // CLOSE BUTTON
+/*CLOSE BUTTON*/
   close.id = "lb-close";
   close.textContent = "x";
   close.style.color = "white";
@@ -32,18 +39,17 @@ var lightbox = function(element) {
   close.style.border = "none";
   close.style.cursor = "pointer";
 
-  // CONTAINER
+/*CONTAINER*/
   container.id = "lb-container";
   container.style.position = "fixed";
   container.style.marginTop = "-20%";
-  container.style.marginLeft = "-37.5%";
+  container.style.marginLeft = "-27.5%";
   container.style.left = "50%";
   container.style.top = "50%";
-  container.style.width = "75%";
-  // container.style.height = "25%";
+  container.style.width = "55%";
   container.style.backgroundColor = "#fff";
 
-  // PREV BUTTON
+/*PREV BUTTON*/
   prev.id = "lb-prev";
   prev.textContent = "<";
   prev.style.color = "white";
@@ -55,9 +61,9 @@ var lightbox = function(element) {
   prev.style.cursor = "pointer";
   prev.style.marginLeft = "-100px";
   prev.style.marginTop = "24%";
-  // prev.style.top = "55%";
 
-  // PREV BUTTON
+
+/*PREV BUTTON*/
   next.id = "lb-next";
   next.textContent = ">";
   next.style.color = "white";
@@ -69,11 +75,10 @@ var lightbox = function(element) {
   next.style.cursor = "pointer";
   next.style.marginRight = "-100px";
   next.style.marginTop = "24%";
-  // next.style.top = "55%";
 
-  // IMAGE
+/*IMAGE*/
   img.id = "lb-img";
-  img.style.maxWidth = "100%";
+  img.style.width = "100%";
 
 
   lb.appendChild(close);
@@ -87,14 +92,14 @@ var lightbox = function(element) {
   var dom = id ? document.getElementById(element.replace("#", "")) : document.getElementsByClassName(element.replace(".", ""));
   var images = [];
 
-  // FUNCTIONS
+/*FUNCTIONS*/
 
-  // TYPE CLASS DOM
+/*TYPE CLASS DOM*/
   if (!id) {
 
     for (var i = 0; i < dom.length; i++) {
       images[i] = dom[i].getElementsByTagName("img");
-      // IMG LISTENER
+    /*IMG LISTENER*/
       for (var j = 0; j < images[i].length; j++) {
         images[i][j].id = "lb-" + i + "-" + j;
         images[i][j].addEventListener("click", function() {
@@ -108,14 +113,14 @@ var lightbox = function(element) {
       }
     }
 
-    // NEXT
+  /*NEXT*/
     next.addEventListener("click", function() {
       var p = img.target + 1 >= dom[img.galery].getElementsByTagName("img").length ? img.target : img.target + 1;
       img.src = images[img.galery][p].src;
       img.target = p;
     });
 
-    // PREV
+  /*PREV*/
     prev.addEventListener("click", function() {
       var p = img.target - 1 == -1 ? img.target : img.target - 1;
       img.src = images[img.galery][p].src;
@@ -124,10 +129,10 @@ var lightbox = function(element) {
 
   } else {
 
-    // TYPE ID DOM
+  /*TYPE ID DOM*/
     images[0] = dom.getElementsByTagName("img");
 
-    // IMG LISTENER
+  /*IMG LISTENER*/
     for (var i = 0; i < images[0].length; i++) {
       images[0][i].id = "lb-0-" + i;
       images[0][i].addEventListener("click", function() {
@@ -140,14 +145,14 @@ var lightbox = function(element) {
       });
     }
 
-    // NEXT
+  /*NEXT*/
     next.addEventListener("click", function() {
       var p = img.target + 1 >= dom.getElementsByTagName("img").length ? img.target : img.target + 1;
       img.src = images[0][p].src;
       img.target = p;
     });
 
-    // PREV
+  /*PREV*/
     prev.addEventListener("click", function() {
       var p = img.target - 1 == -1 ? img.target : img.target - 1;
       img.src = images[0][p].src;
@@ -156,7 +161,7 @@ var lightbox = function(element) {
 
   }
 
-  // CLOSE
+/*CLOSE*/
   close.addEventListener("click", function() {
     lb.style.zIndex = "-1";
     lb.style.opacity = 0;
